@@ -1,0 +1,63 @@
+<!-- <app-recipe-item></app-recipe-item> -->
+<section class="section auth-section bg-cover" style="background-image: url('../../assets/images/bg-bg-login.jpg');">
+    <div class="container">
+        <form class="auth-form light-bg" style="background-image: url('../../assets/images/bg-login.jpg');">
+            <i class="fa-solid fa-arrow-left" style="text-decoration: none; cursor: pointer; color: black; margin-right: 10px;" routerLink="/recipes">  Back</i>
+
+            <h1>Add new Recipe</h1>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Name" name="name" value class="form-control" [(ngModel)]="model.Name">
+            </div> 
+            <div class="form-group">
+                <label>Description</label>
+                <textarea type="text" placeholder="Description" name="description" value class="form-control" [(ngModel)]="model.Description"></textarea>
+            </div> 
+            <div class="form-group">
+                <label>Image</label>
+                <input type="text" placeholder="Image" name="image" value class="form-control" [(ngModel)]="model.Image">
+            </div>           
+           
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" placeholder="Quantity" name="quantity" value class="form-control" [(ngModel)]="model.Quantity">
+            </div>
+            <div class="form-group">
+                <label>Category Type</label>
+                <!-- <select  placeholder="Category Type" name="categoryType"  class="form-control" [(ngModel)]="model.CategoryId">
+                    <option [value]="tip.id" *ngFor="let tip of categoriesList$|async">{{tip.categoryType}}</option>
+                    </select> -->
+                    <select  placeholder="Category Type" name="categoryType"  class="form-control" [(ngModel)]="model.CategoryId">
+                        <option [value]="tip.id" *ngFor="let tip of categoriesList$|async">{{tip.categoryType}}</option>
+                        </select>
+            </div>
+            <div class="form-group">
+                <label>Total Minutes</label>
+                <input type="number" placeholder="Total Minutes" name="totalMinutes" value class="form-control" [(ngModel)]="model.totalMintues">
+            </div>
+            <div class="form-group">
+                <label>Steps</label>
+                <input type="text" placeholder="Steps" name="steps" value class="form-control" [(ngModel)]="model.steps">
+            </div>
+            <div class="form-group">
+                <label>Total Steps</label>
+                <input type="number" placeholder="Total Steps" name="totalSteps" value class="form-control" [(ngModel)]="model.totalSteps">
+            </div>
+            <div class="form-group">
+                <label>Ingredients</label>
+                <input type="text" placeholder="Ingredients" name="ingredients" value class="form-control" [(ngModel)]="model.ingredientsTypes">
+            </div>
+            <!-- <div class="form-group">
+                <label>Total Minutes</label>
+                <input type="text" placeholder="Total Minutes" name="totalMinutes" value class="form-control">
+            </div> -->
+            <div class="form-group">
+                <button type="button" class="btn-custom primary btn-block" (click)="addRecipeToList()" >Add Recipe To List</button>
+            </div>
+            <!-- <p class="form-group text-center">
+                Already have an account? <a routerLink="/login" class="btn-link">Login</a>
+            </p> -->
+        </form>
+    </div>
+</section>
+

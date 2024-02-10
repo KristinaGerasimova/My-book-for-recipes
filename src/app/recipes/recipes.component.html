@@ -1,0 +1,54 @@
+<section class="section" style="background-image: url('../../assets/images/bg-bg-login.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="recipe recipe-list" *ngFor="let item of recipesList$|async">
+                    <div class="recipe-thumbnail">
+                        <a routerLink="/recipe-detail">
+                            <img src="../../assets/images/{{item.image}}.jpg">
+                        </a>
+                    </div>
+                    <div class="recipe-body" >
+                        <div class="recipe-title" style="font-size: 20px;">
+                            <a routerLink="/recipe-detail/{{item.id}}">{{item.name}}</a>
+                        </div>
+                        <p class="recipe-text">
+                           {{item.description}}
+                        </p>
+                        <div class="recipe-meta">
+                            <!-- <div class="recipe-difficulty">
+                               <div class="recipe-difficulty-inner">
+                                Chef
+                               </div>     
+                            </div > -->
+                            <div class="recipe-steps">
+                                <span>
+                                    <i class="fas fa-concierge-bell"> {{item.totalSteps}} Steps </i>
+                                </span>
+                            </div>
+                            <div class="recipe-duration">
+                                <span>
+                                    <i class="fas fa-stopwatch"> {{item.totalMintues}} mins </i>
+                                </span>
+                            </div>
+                            <div class="recipe-edit" routerLink="/edit-recipe/{{item.id}}">
+                                <span>
+                                    <i class="fa-solid fa-pen" [appUserTypeEnabled]="[2]">Edit </i>
+                                </span>
+                            </div>
+                                                        
+                        </div>
+                    </div>
+                </div>           
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <button type="button" class="btn-custom primary btn-block" (click)="AddNewRecipe()" >Add New Recipe</button>                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>    
+</div>
+</section>
+

@@ -1,0 +1,31 @@
+<section class="section auth-section bg-cover" style="background-image: url('../../assets/images/bg-bg-login.jpg');">
+    <form #form='ngForm' (submit)="onSubmit(form)">
+        <div class="container">
+        <div class="auth-form light-bg" style="background-image: url('../../assets/images/bg-login.jpg');">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" #UserName="ngModel" [(ngModel)]="formModel.UserName" placeholder="Username" name="username" value class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" #Password="ngModel" [(ngModel)]="formModel.Password" placeholder="Password" name="password" value class="form-control" required>
+            </div>
+
+            <!-- <div>
+
+            </div> -->
+
+            <div class="form-group">
+                <button type="submit" class="btn-custom primary btn-block" [disabled]="form.invalid">LOGIN</button>
+            </div>
+
+            <p class="form-group text-center">
+                Don't have an account? <a [routerLink]="'/signup'" class="btn-link">Create One</a>
+            </p>
+        </div>
+    </div>
+    </form>
+    
+
+</section>

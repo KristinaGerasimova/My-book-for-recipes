@@ -1,0 +1,193 @@
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner dark-overlay">
+                <div class="carousel-item active">
+                    <img src="../../assets/images/naslovna.jpg" style="max-height: 620px; object-fit: cover;" class="d-block w-100" alt="...">
+                    <div class="centered"></div>
+                </div>
+            <div class="carousel-item banner dark-overlay"style="background-image: url('../../assets/images/naslov-1.jpg');max-height: 620px;
+            object-fit: cover;" >
+               
+            </div>
+            <div class="carousel-item banner dark-overlay"style="background-image: url('../../assets/images/naslov-2.jpg');max-height: 620px;
+            object-fit: cover;" >
+               
+            </div>
+            <div class="carousel-item banner dark-overlay"style="background-image: url('../../assets/images/naslov-3.jpg');max-height: 620px;
+            object-fit: cover;" >
+               
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+<form>
+    
+    <div class="container">
+    <div class="row">
+        <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
+            <div style="font-size: 18px; align-items: center;">
+                Filter by Category Type
+            </div>
+            <div>
+                <button  style="width: 100%;
+                cursor: pointer;
+                display: inline-block;
+                text-align: center;
+                background-color: #85b72c;
+                border: 0;
+                color: #fff;
+                font-size: 14px;
+                padding: 12px 30px;
+                transition: .3s;
+                text-transform: uppercase;
+                border-radius: 8px;
+                z-index: 1;
+                box-shadow: 4px 3px 24px rgb(133 183 44 / 50%);" (click)="resetFilter()">Reset Filter</button>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let categ of recipesCategories">
+            <div class="ct-category">
+                <div class="ct-category-icon">
+                    <i class="fa-solid fa-{{categ.image}}"></i>
+                </div>
+                <button  type="button" style="            
+                cursor: pointer;
+                color: black;
+                border: 2px solid #f7f4ee;
+                font-size: 20px;" (click)="searchCat(categ.id)">{{categ.categoryType}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+
+<section class="section2 pt-0 section-padding posts">
+    <div class="container">
+        <div class="section-title-wrap section-header">
+            <h2 class="title">From My Blog</h2>
+            <p class="subtitles">
+                Want to see the what new recipes we are working on? Read our daily blog posts and stay up to date
+            </p>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-12">
+                           <div class="marginClass" *ngFor="let item of recipesList">
+                                <div class="post-thumbnail">
+                               
+                                        <img src="../../assets/images/{{item.image}}.jpg" alt="blog post">
+                                    
+                                </div>
+                                
+
+                                
+                                <div class="post-body">
+                                   
+                                        <div class="post-categories" >
+                                        <a>{{item.category.categoryType}}</a>
+                                  </div>
+                           
+                                    
+                                    
+                                    <div class="post-title" >
+                                        <a routerLink="/recipe-detail/{{item.id}}" style="color: black; text-decoration: none; font-size: 28px; ">{{item.name}}</a>
+                                    </div>
+                                    <div class="post-text" style="font-size: 20px; ">
+                                        {{item.description}}
+                                    </div>
+                                    <div class="post-meta">
+                                        <span>
+                                            <i class="far fa-calendar"></i>
+                                            {{item.dateCreated | date:'longDate'}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="sidebar-widget">
+                            <div style="font-size: 16px; margin-bottom: 10px; padding-top: 16px;">Recent Posts</div>
+                            <article class="media" *ngFor="let item of recipesRecentList">
+                                <a> <img src="../../assets/images/{{item.image}}.jpg"></a>
+                              
+                                <div class="media-body">
+                                    <a routerLink="/recipe-detail/{{item.id}}" style="color: black; text-decoration: none; font-size: 12px; ">{{item.name}}</a>
+                                    <p>{{item.dateCreated | date:'longDate'}}</p>
+                                </div>
+                            </article>                          
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section dark-overlay dark-overlay-2 bg-parallax bg-center"
+    style="background-image: url('assets/images/4ta.jpg');">
+    <div class="container">
+        <div class="section-title-wrap text-center">
+            <h2 class="text-white title">Cook Book With a Thousand Recipes</h2>
+            <p class="text-white subtitle"> Get my cook book today and learn a thousand recipes for only 49.99$. </p>
+
+        </div>
+    </div>
+</section>
+
+<section class="section1">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/strawberry.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/avocado.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/oves.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/meso.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/spageti.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 p-0">
+                <a class="ct-ig-item">
+                    <img src="../../assets/images/ovesnakasa.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>

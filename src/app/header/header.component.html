@@ -1,0 +1,49 @@
+<!-- <a routerLink="/recipes" routerLinkActive="active">Recipes</a> -->
+<!-- <nav class="navbar navbar-light">
+    <div class="container " id="navbarNav">
+
+        <div class="row">            
+            <div class="col-md-4">
+                    <a class="nav-link" routerLink="/recipes" routerLinkActive="active">RECIPES</a>
+                
+            </div>
+            <div class="col-md-8">
+                <a class="nav-link" routerLink="/shoppinglist" routerLinkActive="active">SHOPPING LIST</a>
+            </div>  
+        </div>
+    </div>
+</nav> -->
+
+<header class="main-header header-4">
+    <div class="top-header" style="position: static;">
+        <div class="container">
+            <div class="top-header-inner">
+                <ul class="top-header-nav" > 
+                    <li style="color: #f7f4ee;" *ngIf="!userTokenShow" (click)="onLogout()">Logout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a routerLink="/" class="navbar-brand">
+                <img src="../../assets/images/homechef-1.jpg">
+            </a>
+            <ul class="navbar-nav">
+                <li class="menu-item menu-item-has-children">
+                    <a routerLink="/" style="font-size:20px">Home</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a routerLink="/recipes" routerLinkActive="active" style="font-size:20px">Recipes</a>
+                </li>
+            </ul>
+            <div class="header-controls">
+                <ul class="header-controls-inner">
+                    <li class="search-dropdown-wrapper search-trigger">
+                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
